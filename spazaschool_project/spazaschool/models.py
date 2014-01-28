@@ -7,10 +7,7 @@ from django.contrib.auth.models import (
 class MyUserManager(BaseUserManager):
     def create_user(self, msisdn, first_name, last_name, secret_code,
                     password=None):
-        """
-        Creates and saves a User with the given email, date of
-        birth and password.
-        """
+
         if not msisdn:
             raise ValueError('Users must have an msisdn')
 
@@ -27,10 +24,7 @@ class MyUserManager(BaseUserManager):
 
     def create_superuser(self, msisdn, first_name, last_name, secret_code,
                          password):
-        """
-        Creates and saves a superuser with the given email, date of
-        birth and password.
-        """
+
         user = self.create_user(msisdn,
                                 password=password,
                                 first_name=first_name,
