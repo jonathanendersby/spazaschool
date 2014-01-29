@@ -2,5 +2,14 @@
 {% load staticfiles %}
 
 {% block content %}
-{{copy|safe}}
+    {% if user.is_authenticated %}Hi {{ user.first_name }}{% else %}<a href="{% url 'spazaschool.views.login' %}">Login</a>{% endif %}<br /><br />
+
+    {{copy|safe}}
+    <br /><br/>
+    <h2>Contents:</h2>
+    {% for module in modules %}
+        <b>{{module.name}}</b> - {{module.description}}<br />
+    {% endfor %}
+
+
 {% endblock %}

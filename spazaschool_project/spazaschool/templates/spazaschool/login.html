@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+<form method="POST">
+    {% csrf_token %}
+    Phone Number<br />
+    <input type="text" name="phone_number" /><br />
+    <br />
+    Password<br />
+    <input type="password" name="password" /><br />
+    <br />
+    <input type="submit" value="Login" />
+
+
+</form>
+{% endblock %}
